@@ -1,0 +1,21 @@
+{
+  "name": "angular-seed",
+  "description": "The HomePLus Foreground",
+  "main": "index.js",
+  "authors": [
+    "DadeCoder <dade_zhang@163.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/DadeCoder/HomePlusWebTest",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

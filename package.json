@@ -1,0 +1,22 @@
+{
+  "name": "angular-seed",
+  "version": "1.0.0",
+  "description": "The HomePLus Foreground",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DadeCoder/HomePlusWebTest"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DadeCoder/HomePlusWebTest/issues"
+  },
+  "homepage": "https://github.com/DadeCoder/HomePlusWebTest"
+}
