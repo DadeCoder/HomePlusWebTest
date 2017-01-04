@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myCookie">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<form ng-controller="cookieCtrl" ng-submit="processForm()">
+		<input type="text" name="btn_username" ng-model="userinfo.username">
+		<input type="password" name="password" ng-model="userinfo.password">
+		<input type="button" name="btn_username" value="getData" ng-click="getData()">
+		<input type="button" name="btn_userid" value="setData" ng-click="setData()">
+		<input type="submit" name="submit" value="submit">
+		<pre>
+			{{userinfo}}
+		</pre>
+	</form>
+
+	<button ng-controller="btnCtrl" ng-click="process()">testPathVariable</button>
+
+
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-cookies.js"></script>
+	<script src="js/cookie.js"></script>
+</body>
+</html>
