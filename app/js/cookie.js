@@ -13,6 +13,21 @@ myCookie.controller("btnCtrl",["$scope","$cookieStore","$http",function($scope,$
 	}
 }])
 
+myCookie.controller("headerCtrl",["$scope","$cookieStore","$http",function($scope,$cookieStore,$http){
+
+    $scope.setHeader = function(){
+        var userid = $cookieStore.get("AngularJs");
+        $http({
+            method  : 'get',
+            url     : 'http://localhost:8090/api/test/header',
+            headers : {'Authorization' : userid},
+        }).success(function(data) {
+            console.log("from server: " + data);
+        });
+    }
+
+}])
+
 myCookie.controller("cookieCtrl",["$scope","$cookieStore","$http",function($scope,$cookieStore,$http){
 	$scope.userinfo={
 		username:"",
@@ -23,7 +38,9 @@ myCookie.controller("cookieCtrl",["$scope","$cookieStore","$http",function($scop
 
 
 	 $scope.getData=function(){
-         console.log($scope.userinfo); 
+         // console.log($scope.userinfo); 
+        var id = $cookieStore.get("AngularJs");
+        console.info("from cookie_getData(): " + id);
      };
 
      $scope.setData=function(){
@@ -40,9 +57,12 @@ myCookie.controller("cookieCtrl",["$scope","$cookieStore","$http",function($scop
         data:$scope.userinfo,
     }).success(function(data) {
     	console.log("from server: " + data);
-    	$cookieStore.put("AngularJs", data);
+        var now = new Date(),
+        // this will set the expiration to 12 months
+        exp = new Date(now.getFullYear()+1, now.getMonth(), now.getDate());
+    	$cookieStore.put("AngularJs", data, {'expires': exp});
     	var xx = $cookieStore.get("AngularJs");
-    	console.info("from cookie: " + xx);
+    	console.info("from cookie_submitSuccess: " + xx);
 
 
     });
