@@ -6,7 +6,7 @@ myCookie.controller("btnCtrl",["$scope","$cookieStore","$http",function($scope,$
 		var userid = $cookieStore.get("AngularJs");
 		$http({
 	        method  : 'get',
-	        url     : 'http://localhost:8090/api/test/cookie/' + userid,
+	        url     : 'http://localhost:8090/api/public/test/cookie/' + userid,
 	    }).success(function(data) {
 	    	console.log("from server: " + data);
     	});
@@ -19,7 +19,7 @@ myCookie.controller("headerCtrl",["$scope","$cookieStore","$http",function($scop
         var userid = $cookieStore.get("AngularJs");
         $http({
             method  : 'get',
-            url     : 'http://localhost:8090/api/test/header',
+            url     : 'http://localhost:8090/api/public/test/header',
             headers : {'Authorization' : userid},
         }).success(function(data) {
             console.log("from server: " + data);
@@ -53,7 +53,7 @@ myCookie.controller("cookieCtrl",["$scope","$cookieStore","$http",function($scop
    $scope.processForm = function() {
     $http({
         method  : 'POST',
-        url     : 'http://localhost:8090/api/test/userid',
+        url     : 'http://localhost:8090/api/public/test/userid',
         data:$scope.userinfo,
     }).success(function(data) {
     	console.log("from server: " + data);
