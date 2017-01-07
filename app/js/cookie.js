@@ -4,6 +4,10 @@ myCookie.controller("btnCtrl",["$scope","$cookieStore","$http",function($scope,$
 	
 	$scope.process = function(){
 		var userid = $cookieStore.get("AngularJs");
+        console.log("miss cookie: " + userid);
+        if (userid=="undefined") {
+            window.location = "./testcookie.html";
+        }
 		$http({
 	        method  : 'get',
 	        url     : 'http://localhost:8090/api/public/test/cookie/' + userid,
@@ -17,12 +21,15 @@ myCookie.controller("headerCtrl",["$scope","$cookieStore","$http",function($scop
 
     $scope.setHeader = function(){
         var userid = $cookieStore.get("AngularJs");
+        console.log("setHeader beofore: " + userid);
         $http({
             method  : 'get',
-            url     : 'http://localhost:8090/api/public/test/header',
-            headers : {'Authorization' : userid},
+            url     : 'http://localhost:8090/api/private/test/header',
+            headers : {'userid' : "test"},
         }).success(function(data) {
             console.log("from server: " + data);
+        }).error(function(data){
+            console.log("error: " + data);
         });
     }
 
